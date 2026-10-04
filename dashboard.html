@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Student Utility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dashboard-body">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand sidebar-brand">
+          <div class="brand-mark">S</div>
+          <span>Student Utility</span>
+        </div>
+
+        <nav class="side-nav">
+          <a href="#overview" class="active">Overview</a>
+          <a href="#announcements">Announcements</a>
+          <a href="#events">Events</a>
+          <a href="#resources">Resources</a>
+          <a href="#assignments">Assignments</a>
+          <a href="#discussion">Discussion</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user-card">
+            <span class="user-badge" id="userRoleBadge">student</span>
+            <h3 id="userName">Student</h3>
+            <small id="userEmail">student@college.edu</small>
+          </div>
+          <button class="btn btn-secondary full-width" id="logoutBtn">Log out</button>
+        </div>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Welcome back</p>
+            <h1 id="dashboardTitle">Dashboard</h1>
+          </div>
+          <button class="btn btn-primary" id="refreshDataBtn">Refresh</button>
+        </header>
+
+        <section id="overview" class="content-section">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span>Announcements</span>
+              <strong id="announcementCount">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>Events</span>
+              <strong id="eventCount">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>Resources</span>
+              <strong id="resourceCount">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>Pending Tasks</span>
+              <strong id="pendingTasks">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="announcements" class="content-section">
+          <div class="section-header">
+            <h2>Announcements</h2>
+            <button class="btn btn-primary small-btn" id="addAnnouncementBtn">Add</button>
+          </div>
+          <div id="announcementFormContainer" class="mini-form hidden">
+            <form id="announcementForm" class="stacked-form">
+              <div class="form-row">
+                <input type="text" id="announcementTitle" placeholder="Announcement title" required />
+                <input type="date" id="announcementDate" required />
+              </div>
+              <textarea id="announcementText" rows="3" placeholder="Announcement details" required></textarea>
+              <button class="btn btn-primary" type="submit">Save announcement</button>
+            </form>
+          </div>
+          <div id="announcementList" class="list-card"></div>
+        </section>
+
+        <section id="events" class="content-section">
+          <div class="section-header">
+            <h2>Events & Workshops</h2>
+            <button class="btn btn-primary small-btn" id="addEventBtn">Add</button>
+          </div>
+          <div id="eventFormContainer" class="mini-form hidden">
+            <form id="eventForm" class="stacked-form">
+              <div class="form-row">
+                <input type="text" id="eventName" placeholder="Event title" required />
+                <input type="date" id="eventDate" required />
+              </div>
+              <div class="form-row">
+                <input type="text" id="eventVenue" placeholder="Venue" required />
+                <input type="text" id="eventType" placeholder="Type (Workshop / Seminar / Festival)" required />
+              </div>
+              <button class="btn btn-primary" type="submit">Save event</button>
+            </form>
+          </div>
+          <div id="eventList" class="list-card"></div>
+        </section>
+
+        <section id="resources" class="content-section">
+          <div class="section-header">
+            <h2>Notes & Resources</h2>
+            <button class="btn btn-primary small-btn" id="addResourceBtn">Add</button>
+          </div>
+          <div class="toolbar">
+            <input type="text" id="resourceSearch" placeholder="Search by title, subject, or category" />
+            <select id="resourceFilter">
+              <option value="all">All</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="Business">Business</option>
+              <option value="General">General</option>
+            </select>
+          </div>
+          <div id="resourceFormContainer" class="mini-form hidden">
+            <form id="resourceForm" class="stacked-form">
+              <div class="form-row">
+                <input type="text" id="resourceTitle" placeholder="Resource title" required />
+                <input type="text" id="resourceCourse" placeholder="Course / Subject" required />
+              </div>
+              <div class="form-row">
+                <input type="text" id="resourceCategory" placeholder="Category" required />
+                <input type="url" id="resourceUrl" placeholder="Resource URL" required />
+              </div>
+              <button class="btn btn-primary" type="submit">Save resource</button>
+            </form>
+          </div>
+          <div id="resourceList" class="resource-grid"></div>
+        </section>
+
+        <section id="assignments" class="content-section">
+          <div class="section-header">
+            <h2>Assignment Deadline Tracker</h2>
+            <button class="btn btn-primary small-btn" id="addAssignmentBtn">Add</button>
+          </div>
+          <div id="assignmentFormContainer" class="mini-form hidden">
+            <form id="assignmentForm" class="stacked-form">
+              <div class="form-row">
+                <input type="text" id="assignmentTitle" placeholder="Assignment title" required />
+                <input type="text" id="assignmentSubject" placeholder="Subject" required />
+              </div>
+              <div class="form-row">
+                <input type="date" id="assignmentDate" required />
+                <select id="assignmentStatus">
+                  <option value="pending">Pending</option>
+                  <option value="in-progress">In Progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" type="submit">Save task</button>
+            </form>
+          </div>
+          <div id="assignmentList" class="list-card assignments-list"></div>
+        </section>
+
+        <section id="discussion" class="content-section">
+          <div class="section-header">
+            <h2>Student Discussion</h2>
+          </div>
+          <form id="discussionForm" class="stacked-form discussion-form">
+            <div class="form-row">
+              <input type="text" id="discussionTopic" placeholder="Discussion topic" required />
+            </div>
+            <textarea id="discussionMessage" rows="4" placeholder="Write your question or idea..." required></textarea>
+            <button class="btn btn-primary" type="submit">Post to discussion</button>
+          </form>
+          <div id="discussionList" class="discussion-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

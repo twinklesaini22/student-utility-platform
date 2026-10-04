@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Student Utility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-body">
+    <div class="auth-shell">
+      <div class="auth-panel left-panel">
+        <div class="brand brand-auth">
+          <div class="brand-mark">S</div>
+          <span>Student Utility</span>
+        </div>
+        <h1>Welcome back.</h1>
+        <p>
+          Access announcements, resources, deadlines, and your academic dashboard in one place.
+        </p>
+        <ul class="feature-list">
+          <li>Live campus updates</li>
+          <li>Assignments and reminders</li>
+          <li>Shared notes and resources</li>
+        </ul>
+      </div>
+
+      <div class="auth-panel form-panel">
+        <div class="auth-card">
+          <div class="auth-header">
+            <h2>Login</h2>
+            <p>Use your student, teacher, or admin account.</p>
+          </div>
+
+          <form id="loginForm">
+            <div class="field-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="name@college.edu" required />
+            </div>
+
+            <div class="field-group">
+              <label for="password">Password</label>
+              <input id="password" type="password" placeholder="Enter your password" required />
+            </div>
+
+            <div class="field-group">
+              <label for="role">Role</label>
+              <select id="role">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <option value="administrator">Administrator</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary full-width" type="submit">Sign In</button>
+          </form>
+
+          <div class="demo-box">
+            <p class="small-label">Demo accounts</p>
+            <ul>
+              <li><strong>Student:</strong> student@college.edu / student123</li>
+              <li><strong>Teacher:</strong> teacher@college.edu / teacher123</li>
+              <li><strong>Admin:</strong> admin@college.edu / admin123</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
